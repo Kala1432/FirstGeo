@@ -12,7 +12,8 @@ SECRET_KEY = os.environ.get("SECRET_KEY", "dev-secret-key")  # uses env var, fal
 DEBUG = os.environ.get("DEBUG", "False") == "True"
 
 # Hosts
-ALLOWED_HOSTS = ["*"]  # in Render, you can set your domain
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", ".onrender.com"]
+
 
 # Apps
 INSTALLED_APPS = [
@@ -27,6 +28,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # 👈 add this just after SecurityMiddleware
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -34,6 +36,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
 
 ROOT_URLCONF = 'FirstGeo.urls'
 

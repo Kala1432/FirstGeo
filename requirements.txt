@@ -1,7 +1,8 @@
 asgiref==3.9.2
 Django==5.2.7
 gunicorn==23.0.0
-mysqlclient==2.2.7
+mysqlclient==2.2.7       # for local MySQL (optional if you stick to Postgres)
+dj-database-url==2.3.0
 packaging==25.0
-PyMySQL==1.1.2
 sqlparse==0.5.3
+psycopg2-binary==2.9.9   # for Render’s Postgres
